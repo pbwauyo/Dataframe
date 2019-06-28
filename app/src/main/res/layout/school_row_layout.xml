@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:id="@+id/school_badge"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+
+        <TextView
+            android:id="@+id/placeholder"
+            android:background="@drawable/rounded_text_view"
+            android:layout_marginEnd="8dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/school_name"
+            android:text="Mengo Senior School"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_width="0dp"
+            android:gravity="center|start"
+            android:background="@drawable/text_view_states"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

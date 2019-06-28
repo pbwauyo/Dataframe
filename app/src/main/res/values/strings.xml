@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">Dataframe</string>
+    <string name="choose_class">Choose a class</string>
+    <string name="choose_age">Choose age</string>
+
+    <string-array name="p1_age_group">
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="p2_age_group">
+        <item></item>
+    </string-array>
+
+    <string-array name="p3_age_group">
+        <item></item>
+    </string-array>
+
+    <string-array name="p4_age_group">
+        <item></item>
+    </string-array>
+
+    <string-array name="p5_age_group">
+        <item></item>
+    </string-array>
+
+    <string-array name="p6_age_group">
+        <item></item>
+    </string-array>
+
+    <string-array name="p7_age_group">
+        <item></item>
+    </string-array>
+
+    <string-array name="classes">
+        <item>P1</item>
+        <item>P2</item>
+        <item>p3</item>
+        <item>p4</item>
+        <item>P5</item>
+        <item>P6</item>
+    </string-array>
+
+    <string-array name="school_types">
+        <item>MIXED</item>
+        <item>BOYS</item>
+        <item>GIRLS</item>
+    </string-array>
+
+    <string-array name="school_levels">
+        <item>PRE-PRIMARY</item>
+        <item>PRIMARY</item>
+        <item>SECONDARY</item>
+    </string-array>
+
+    <string-array name="founding_bodies">
+        <item>SDA</item>
+        <item>ISLAMIC</item>
+        <item>GOVERNMENT</item>
+        <item>ENTREPRENEURS</item>
+        <item>COU</item>
+        <item>COMMUNITY</item>
+        <item>CATHOLIC</item>
+    </string-array>
+
+    <string-array name="qualifications">
+        <item>DPE</item>
+        <item>GRADE II</item>
+        <item>GRADE III</item>
+        <item>GRADE IV</item>
+        <item>GRADE V</item>
+        <item>GRADUATE TEACHER</item>
+        <item>LICENSED TEACHER</item>
+        <item>OTHER TRAINING</item>
+        <item>NOT STATED</item>
+    </string-array>
+
+    <string-array name="funding_sources">
+        <item>GOVERNMENT AIDED</item>
+        <item>NON-GOVERNMENT AIDED</item>
+    </string-array>
+
+    <string-array name="ownership">
+        <item>PRIVATE</item>
+        <item>GOVERNMENT</item>
+    </string-array>
+
+    <string-array name="registration_statuses">
+        <item>LICENSED</item>
+        <item>REGISTERED</item>
+        <item>NOT REGISTERED</item>
+    </string-array>
+
+    <string-array name="salary_scales">
+        <item>less than 50,000</item>
+        <item>50,000–100,000</item>
+        <item>100,000–200,000</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

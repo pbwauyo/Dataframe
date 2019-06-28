@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <array name="progress_bar_colors">
+        <item>#000000</item>
+        <item>#FFFF00</item>
+        <item>#FF0000</item>
+        <item>#FFFFFF</item>
+    </array>
+</resources>
