@@ -1,14 +1,22 @@
 package com.example.dataframe;
 
 import android.app.DatePickerDialog;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -17,6 +25,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dataframe.dbhelpers.TeacherDbHelper;
 import com.jpardogo.android.googleprogressbar.library.GoogleProgressBar;
 
 import org.json.JSONException;
@@ -26,13 +35,15 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Calendar;
+import java.util.HashMap;
 
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 import static com.example.dataframe.UtilityMethods.setRequestContent;
+import static com.example.dataframe.contracts.TeacherContract.Constants;
 
-public class TeacherActivity extends FragmentActivity implements DatePickerDialog.OnDateSetListener {
+public class TeacherActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private TextView birthDayTxt, birthMonthTxt, birthYearTxt;
     private TextView postingDayTxt, postingMonthTxt, postingYearTxt;
     private TextView appointmentDayTxt, appointmentMonthTxt, appointmentYearTxt;
@@ -56,15 +67,29 @@ public class TeacherActivity extends FragmentActivity implements DatePickerDialo
     private String fName, lName, nin, employeeNum, licenseNum, phoneNum, email, sex, license, qualification, salaryScale, mpsNumber, dateOfBirth, dateOfPosting, dateOfAppointment;
     private String schoolId;
 
+    SweetAlertDialog errorAlertDialog, successAlertDialog;
+
+    TeacherDbHelper dbHelper;
+    SQLiteDatabase db;
+    ContentValues contentValues;
+    private final String emptyError = "field can't be empty";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher);
 
+        Toolbar toolbar = findViewById(R.id.menu_toolbar);
+        setSupportActionBar(toolbar);
+
         Intent intent = getIntent();
         schoolId = intent.getStringExtra("school_id");
 
         progressBar = findViewById(R.id.teacher_progress_bar);
+
+        dbHelper = new TeacherDbHelper(this);
+        db = dbHelper.getWritableDatabase();
+        contentValues = new ContentValues();
 
         Calendar calendar = Calendar.getInstance();
         day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -117,6 +142,29 @@ public class TeacherActivity extends FragmentActivity implements DatePickerDialo
             }
         });
 
+        errorAlertDialog =  new SweetAlertDialog(TeacherActivity.this, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Error!")
+                .setContentText("Problem saving details. Try again")
+                .setCancelText("OK")
+                .showCancelButton(true)
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        sweetAlertDialog.dismissWithAnimation();
+                    }
+                });
+
+        successAlertDialog = new SweetAlertDialog(TeacherActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+                .setTitleText("Success!")
+                .setContentText("Details saved successfully")
+                .setConfirmText("Ok")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        sweetAlertDialog.dismissWithAnimation();
+                    }
+                });
+
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,6 +185,9 @@ public class TeacherActivity extends FragmentActivity implements DatePickerDialo
                 if(licenseNumLayout.getVisibility() == View.VISIBLE){
                     licenseNum = licenseNumTxt.getText().toString().trim();
                 }
+
+                //phone number
+                phoneNum = phoneNumTxt.getText().toString().trim();
 
                 //email
                 email = emailTxt.getText().toString().trim();
@@ -166,28 +217,30 @@ public class TeacherActivity extends FragmentActivity implements DatePickerDialo
                 //MPS Number
                 mpsNumber = mpsNumberTxt.getText().toString().trim();
 
-                new SweetAlertDialog(TeacherActivity.this, SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Are you sure")
-                        .setContentText("Make sure all fields are correct")
-                        .setConfirmText("Yes")
-                        .setCancelText("No")
-                        .showCancelButton(true)
-                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismissWithAnimation();
-                            }
-                        })
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismissWithAnimation();
-                                progressBar.setVisibility(View.VISIBLE);
-                                new PostTeacherDetails().execute();
-                            }
-                        })
-                        .show();
-
+                if(fName.equals("")){
+                    fNameTxt.setError(emptyError);
+                }
+                else if(lName.equals("")){
+                    lNameTxt.setError(emptyError);
+                }
+                else if(nin.equals("")){
+                    ninTxt.setError(emptyError);
+                }
+                else if(employeeNum.equals("")){
+                    employeeNumTxt.setError(emptyError);
+                }
+                else if(phoneNum.equals("")){
+                    phoneNumTxt.setError(emptyError);
+                }
+                else if(email.equals("")){
+                    emailTxt.setError(emptyError);
+                }
+                else if(mpsNumber.equals("")){
+                    mpsNumberTxt.setError(emptyError);
+                }
+                else {
+                    displayCustomDialog();
+                }
             }
         });
 
@@ -197,9 +250,6 @@ public class TeacherActivity extends FragmentActivity implements DatePickerDialo
                 SELECTED_VIEW = "birth_day_text_view";
                 showDatePickerDialog();
 
-//                datePickerFragment = new DatePickerFragment();
-//                datePickerFragment.show(getSupportFragmentManager(), "birthDateFragment");
-
             }
         });
 
@@ -208,8 +258,6 @@ public class TeacherActivity extends FragmentActivity implements DatePickerDialo
             public void onClick(View v) {
                 SELECTED_VIEW = "posting_day_text_view";
                 showDatePickerDialog();
-//                datePickerFragment = new DatePickerFragment();
-//                datePickerFragment.show(getSupportFragmentManager(), "postingDateFragment");
             }
         });
 
@@ -218,8 +266,6 @@ public class TeacherActivity extends FragmentActivity implements DatePickerDialo
             public void onClick(View v) {
                 SELECTED_VIEW = "appointment_text_view";
                 showDatePickerDialog();
-//                datePickerFragment = new DatePickerFragment();
-//                datePickerFragment.show(getSupportFragmentManager(), "appointmentDateFragment");
             }
         });
     }
@@ -292,11 +338,13 @@ public class TeacherActivity extends FragmentActivity implements DatePickerDialo
         return conn.getResponseMessage()+"";
     }
 
-    private class PostTeacherDetails extends AsyncTask<Void, Void, String>{
+    private class PostTeacherDetails extends AsyncTask<Void, Void, HashMap<String, String>>{
         String url = "http://tela.planetsystems.co:8080/weca/webapi/capture/employee/register";
 
         @Override
-        protected String doInBackground(Void... voids) {
+        protected HashMap<String, String> doInBackground(Void... voids) {
+            HashMap<String, String> responses = new HashMap<>();
+
             String responseMessage = "";
             try {
                 responseMessage = httpPost(url);
@@ -305,43 +353,39 @@ public class TeacherActivity extends FragmentActivity implements DatePickerDialo
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return responseMessage;
+
+            String newRowId = String.valueOf(postValues()); //post values to database
+            Log.d("new row id", newRowId);
+
+            responses.put("urlResponse", responseMessage);
+            responses.put("databaseResponse", newRowId);
+            return responses;
         }
 
         @Override
-        protected void onPostExecute(String response){
-            super.onPostExecute(response);
+        protected void onPostExecute(HashMap<String, String> responses){
+            super.onPostExecute(responses);
             progressBar.setVisibility(View.GONE);
 
-            if(response.equalsIgnoreCase("OK")){
-                new SweetAlertDialog(TeacherActivity.this, SweetAlertDialog.SUCCESS_TYPE)
-                        .setTitleText("Success")
-                        .setContentText("Details saved successfully")
-                        .setConfirmText("Done")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismissWithAnimation();
-                            }
-                        })
-                        .show();
+            String urlResponse, databaseResponse;
+            urlResponse = responses.get("urlResponse");
+            databaseResponse = responses.get("databaseResponse");
+
+            if(urlResponse.equalsIgnoreCase("OK")){
+                clearAllFields();
+                successAlertDialog.show();
             }
             else {
-                new SweetAlertDialog(TeacherActivity.this, SweetAlertDialog.ERROR_TYPE)
-                        .setTitleText("Error")
-                        .setContentText("Problem saving details. Try again")
-                        .setCancelText("OK")
-                        .showCancelButton(true)
-                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismissWithAnimation();
-                            }
-                        })
-                        .show();
+                errorAlertDialog.show();
             }
-        }
 
+//            if(databaseResponse.equals("-1")){
+//                errorAlertDialog.show();
+//            }
+//            else {
+//                successAlertDialog.show();
+//            }
+        }
     }
 
     private String getQualification(String selectedQualification){
@@ -386,6 +430,148 @@ public class TeacherActivity extends FragmentActivity implements DatePickerDialo
         }
 
         return qualification;
+    }
+
+    long postValues(){
+        contentValues.put(Constants.FIRST_NAME, fName);
+        contentValues.put(Constants.LAST_NAME, lName);
+        contentValues.put(Constants.SEX, sex);
+        contentValues.put(Constants.NIN, nin);
+        contentValues.put(Constants.EMPLOYEE_NUMBER, employeeNum);
+        contentValues.put(Constants.LICENSED, license);
+        contentValues.put(Constants.PHONE_NUMBER, phoneNum);
+        contentValues.put(Constants.EMAIL_ADDRESS, email);
+        contentValues.put(Constants.DATE_OF_BIRTH, dateOfBirth);
+        contentValues.put(Constants.QUALIFICATION, qualification);
+        contentValues.put(Constants.DATE_OF_FIRST_POSTING, dateOfPosting);
+        contentValues.put(Constants.DATE_OF_FIRST_APPOINTMENT, dateOfAppointment);
+        contentValues.put(Constants.SALARY_SCALE, salaryScale);
+        contentValues.put(Constants.MPS_NUMBER, mpsNumber);
+
+        return db.insert(Constants.TABLE_NAME, null, contentValues);
+    }
+
+    String displaySummary(){
+        return   "First Name:   " + fName + "\n" +
+                 "Last name:    " + lName  + "\n" +
+                 "Sex:          " + sex + "\n" +
+                 "NIN:          " + nin + "\n" +
+                 "Employee Num: " + employeeNum + "\n" +
+                 "Licensed:     " + license + "\n" +
+                 "Phone Num:    " + phoneNum + "\n" +
+                 "Email:        " + email + "\n" +
+                 "Date of birth:    " + dateOfBirth + "\n" +
+                 "Date of first posting: " + dateOfPosting + "\n" +
+                 "Date of first appointment: " + dateOfAppointment + "\n" +
+                 "Salary scale: " + salaryScale + "\n" +
+                 "MPS Number:   " + mpsNumber + "\n";
+    }
+
+    void displayCustomDialog(){
+        TextView fNameTxt, lNameTxt, sexTxt, ninTxt, employeeNumTxt, licensedTxt, phoneNumTxt, emailTxt, dobTxt, qualificationTxt, dateOfFirstPostingTxt, dateOfFirstAppointmentTxt, salaryScaleTxt, mpsNumTxt;
+        Button cancelBtn, confirmBtn;
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+        final View dialogView = LayoutInflater.from(this).inflate(R.layout.activity_teacher_pop_up_screen, viewGroup, false);
+
+        //find views
+        fNameTxt = dialogView.findViewById(R.id.popup_fname);
+        lNameTxt = dialogView.findViewById(R.id.popup_lname);
+        sexTxt = dialogView.findViewById(R.id.popup_sex);
+        ninTxt = dialogView.findViewById(R.id.popup_nin);
+        employeeNumTxt = dialogView.findViewById(R.id.popup_employee_num);
+        licensedTxt = dialogView.findViewById(R.id.popup_licensed);
+        phoneNumTxt = dialogView.findViewById(R.id.popup_phone_num);
+        emailTxt = dialogView.findViewById(R.id.popup_email);
+        dobTxt = dialogView.findViewById(R.id.popup_dob);
+        qualificationTxt = dialogView.findViewById(R.id.popup_qualification);
+        dateOfFirstPostingTxt = dialogView.findViewById(R.id.popup_dop);
+        dateOfFirstAppointmentTxt = dialogView.findViewById(R.id.popup_doa);
+        salaryScaleTxt = dialogView.findViewById(R.id.popup_salary_scale);
+        mpsNumTxt = dialogView.findViewById(R.id.popup_mps_computer_number);
+        cancelBtn = dialogView.findViewById(R.id.cancel_button);
+        confirmBtn = dialogView.findViewById(R.id.confirm_button);
+
+        //set views
+        fNameTxt.setText(fName);
+        lNameTxt.setText(lName);
+        sexTxt.setText(sex);
+        ninTxt.setText(nin);
+        employeeNumTxt.setText(employeeNum);
+        licensedTxt.setText(license);
+        phoneNumTxt.setText(phoneNum);
+        emailTxt.setText(email);
+        dobTxt.setText(dateOfBirth);
+        qualificationTxt.setText(qualification);
+        dateOfFirstPostingTxt.setText(dateOfPosting);
+        dateOfFirstAppointmentTxt.setText(dateOfAppointment);
+        salaryScaleTxt.setText(salaryScale);
+        mpsNumTxt.setText(mpsNumber);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        confirmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SweetAlertDialog(TeacherActivity.this, SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("Are you sure")
+                        .setContentText("Make sure all fields are correct")
+                        .setConfirmText("Yes")
+                        .setCancelText("No")
+                        .showCancelButton(true)
+                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                sweetAlertDialog.dismissWithAnimation();
+                            }
+                        })
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                sweetAlertDialog.dismissWithAnimation();
+
+                                dialog.dismiss();
+                                progressBar.setVisibility(View.VISIBLE);
+                                new PostTeacherDetails().execute();
+                            }
+                        })
+                        .show();
+            }
+        });
+    }
+
+    void clearAllFields(){
+        fNameTxt.setText("");
+        lNameTxt.setText("");
+        ninTxt.setText("");
+        employeeNumTxt.setText("");
+        phoneNumTxt.setText("");
+        emailTxt.setText("");
+        mpsNumberTxt.setText("");
+
+        birthDayTxt.setText("");
+        birthMonthTxt.setText("");
+        birthYearTxt.setText("");
+
+        postingDayTxt.setText("");
+        postingMonthTxt.setText("");
+        postingYearTxt.setText("");
+
+        appointmentDayTxt.setText("");
+        appointmentMonthTxt.setText("");
+        appointmentYearTxt.setText("");
+
+        sexGrp.clearCheck();
+        licenseGrp.clearCheck();
     }
 
 }

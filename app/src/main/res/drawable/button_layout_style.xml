@@ -21,18 +21,22 @@
 
             <stroke android:width="3dp"
                 android:color="#ffb116"/>
+
+
         </shape>
     </item>
 
     <item>
         <shape android:shape="rectangle">
 
-            <corners android:radius="10dp"/>
+            <corners android:bottomLeftRadius="6dp" android:bottomRightRadius="6dp" android:topLeftRadius="6dp" android:topRightRadius="6dp" />
 
-            <solid android:color="#55acee"/>
+            <gradient android:startColor="#fed6e3"
+                android:endColor="#a8edea"
+                android:angle="45"/>
 
             <stroke android:width="3dp"
-                android:color="#ffb116"/>
+                android:color="#cca8edea"/>
 
         </shape>
     </item>

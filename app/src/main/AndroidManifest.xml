@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.dataframe">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,25 +9,26 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:replace="android:icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".AllSchoolsActivity"/>
-        <activity android:name=".SportsActivity" />
-        <activity android:name=".HIVActivity" />
-        <activity android:name=".TeachingMaterialsActivity" />
-        <activity android:name=".NonTeachingstaffActivity" />
-        <activity android:name=".InfrastructureActivity" />
-        <activity android:name=".TeacherActivity" />
-        <activity android:name=".SchoolActivity" />
-        <activity android:name=".StudentsActivity" />
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <activity android:name=".popups.TeacherPopUpScreen"/>
+        <activity android:name=".Student" android:label="Student"/>
+        <activity android:name=".AllSchoolsActivity" android:label="Schools List"/>
+        <activity android:name=".SportsActivity" android:label="Sports &amp; P.E"/>
+        <activity android:name=".HIVActivity" android:label="HIV/AIDs"/>
+        <activity android:name=".TeachingMaterialsActivity" android:label="Teaching Materials"/>
+        <activity android:name=".NonTeachingstaffActivity" android:label="Non-teaching staff"/>
+        <activity android:name=".InfrastructureActivity" android:label="Infrastructure"/>
+        <activity android:name=".TeacherActivity" android:label="Teachers"/>
+        <activity android:name=".SchoolActivity" android:label="Schools"/>
+        <activity android:name=".StudentsActivity" android:label="Students"/>
+        <activity android:name=".MainActivity" android:label="Menu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

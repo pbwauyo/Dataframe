@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TeachingMaterialsActivity">
+    tools:context=".TeachingMaterialsActivity"
+    android:theme="@style/AppTheme.TextInputLayoutAppearance">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/menu_toolbar"
@@ -16,20 +17,77 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_marginTop="?attr/actionBarSize"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/choose_subject"
+                android:hint="Choose subject"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:padding="5dp"
+                android:background="@drawable/edit_text_style"/>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:hintTextAppearance="@style/TextInputLayout">
 
-            </LinearLayout>
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/number_of_text_books"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/edit_text_style"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Number of text books"
+                    android:padding="5dp"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:hintTextAppearance="@style/TextInputLayout">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/number_of_teaching_guides"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/edit_text_style"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Number of teaching guides"
+                    android:padding="5dp"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:hintTextAppearance="@style/TextInputLayout">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/class_periods"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/edit_text_style"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Class periods"
+                    android:padding="5dp"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/submit"
+                android:text="SUBMIT"
+                android:background="@drawable/button_layout_style"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

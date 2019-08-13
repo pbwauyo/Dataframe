@@ -9,20 +9,19 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
-    CardView studentCardView, schoolCardView, teacherCardView, nonTeachingStaffCardView, infrastructureActivity, teachingMaterialsActivityCardView, hivCardView, sportsCardView;
+    CardView studentCardView, schoolCardView, teacherCardView, nonTeachingStaffCardView, infrastructureActivityCardView, teachingMaterialsActivityCardView, hivCardView, sportsCardView;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         toolbar = findViewById(R.id.menu_toolbar);
         studentCardView = findViewById(R.id.students_card_view);
         schoolCardView = findViewById(R.id.school_card_view);
         teacherCardView = findViewById(R.id.teacher_card_view);
         nonTeachingStaffCardView = findViewById(R.id.non_teaching_staff_card_view);
-        infrastructureActivity = findViewById(R.id.infrastructure_card_view);
+        infrastructureActivityCardView = findViewById(R.id.infrastructure_card_view);
         teachingMaterialsActivityCardView = findViewById(R.id.teaching_materials_activity_card_view);
         sportsCardView = findViewById(R.id.sports_card_view);
         hivCardView = findViewById(R.id.hiv_card_view);
@@ -31,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         studentCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, StudentsActivity.class));
+                startActivity(new Intent(MainActivity.this, Student.class));
             }
         });
 
@@ -45,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
         teacherCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AllSchoolsActivity.class));
+                Intent intent = new Intent(MainActivity.this, AllSchoolsActivity.class);
+                intent.putExtra("childActivity", "TeacherActivity");
+                startActivity(intent);
             }
         });
 
@@ -56,10 +57,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        infrastructureActivity.setOnClickListener(new View.OnClickListener() {
+        infrastructureActivityCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, InfrastructureActivity.class));
+                Intent intent = new Intent(MainActivity.this, AllSchoolsActivity.class);
+                intent.putExtra("childActivity", "InfrastructureActivity");
+                startActivity(intent);
             }
         });
 

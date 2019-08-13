@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StudentsActivity">
+    tools:context=".StudentsActivity"
+    android:theme="@style/AppTheme.TextInputLayoutAppearance">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/menu_toolbar"
@@ -46,7 +47,7 @@
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:text="Classes"/>
+                    android:text="Class"/>
 
                 <Spinner
                     android:id="@+id/classes_spinner"

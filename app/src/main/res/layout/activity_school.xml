@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/AppTheme.TextInputLayoutAppearance"
     tools:context=".SchoolActivity">
 
     <android.support.v7.widget.Toolbar
@@ -170,6 +171,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/edit_text_style"
                     android:padding="5dp"
+                    android:inputType="number"
                     android:hint="Founding year"/>
             </android.support.design.widget.TextInputLayout>
 

@@ -17,15 +17,18 @@
             android:layout_width="100dp"
             android:layout_height="100dp"/>
 
-        <TextView
+        <com.m2x.avatarview.AvatarView
             android:id="@+id/placeholder"
-            android:background="@drawable/rounded_text_view"
             android:layout_marginEnd="8dp"
+            android:gravity="center"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:textColor="#ffffff"
-            android:textSize="18sp"
-            android:gravity="center" />
+            app:avtv_fit_text_length="1"
+            app:avtv_random_fill_color="true"
+            app:avtv_text_size="18sp"
+            app:avtv_border_color="#d4af37"
+            app:avtv_border_width="2dp"/>
 
         <TextView
             android:id="@+id/school_name"

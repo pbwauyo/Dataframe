@@ -34,6 +34,14 @@ dependencies {
     implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
     implementation 'com.github.f0ris.sweetalert:library:1.6.2'
     implementation 'com.facebook.shimmer:shimmer:0.4.0'
+    implementation 'com.github.jrizani:JRSpinner:1.0.0'
+    implementation 'com.m2x:AvatarView:1.0.1'
+    implementation 'com.fxn769:numpad:1.0'
+    implementation 'me.relex:circleindicator:1.2.2'
+    implementation 'me.omidh:liquidradiobutton:1.0.01'
+    implementation('com.weiwangcn.betterspinner:library-material:1.1.0') {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+    }
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

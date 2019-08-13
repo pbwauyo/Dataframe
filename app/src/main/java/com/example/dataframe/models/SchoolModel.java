@@ -1,4 +1,4 @@
-package com.example.dataframe.Models;
+package com.example.dataframe.models;
 
 public class SchoolModel {
     private String schoolName;

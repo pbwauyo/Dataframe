@@ -42,53 +42,117 @@
     </string-array>
 
     <string-array name="school_types">
-        <item>MIXED</item>
-        <item>BOYS</item>
-        <item>GIRLS</item>
+        <item>Mixed</item>
+        <item>Boys</item>
+        <item>Girls</item>
     </string-array>
 
     <string-array name="school_levels">
-        <item>PRE-PRIMARY</item>
-        <item>PRIMARY</item>
-        <item>SECONDARY</item>
+        <item>Pre-primary</item>
+        <item>Primary</item>
+        <item>Secondary</item>
+    </string-array>
+
+    <string-array name="infrastructure_types">
+        <item>Permanent</item>
+        <item>Temporary</item>
+    </string-array>
+
+    <string-array name="completion_statuses">
+        <item>Complete</item>
+        <item>Incomplete</item>
     </string-array>
 
     <string-array name="founding_bodies">
         <item>SDA</item>
-        <item>ISLAMIC</item>
-        <item>GOVERNMENT</item>
-        <item>ENTREPRENEURS</item>
+        <item>Islamic</item>
+        <item>Government</item>
+        <item>Entrepreneurs</item>
         <item>COU</item>
-        <item>COMMUNITY</item>
-        <item>CATHOLIC</item>
+        <item>Community</item>
+        <item>Catholic</item>
+    </string-array>
+
+    <string-array name="infrastructures">
+        <item>Classrooms</item>
+        <item>Libraries</item>
+        <item>Store rooms</item>
+        <item>Science laboratories</item>
+        <item>Workshops</item>
+        <item>Offices</item>
+        <item>Staff rooms</item>
+        <item>Latrines</item>
+        <item>Stances</item>
+        <item>Teacher houses</item>
+        <item>Computer labs</item>
+        <item>Hand washing facilities</item>
+        <item>Urinals</item>
+        <item>Washrooms</item>
+        <item>Water sources</item>
+        <item>Energy sources</item>
     </string-array>
 
     <string-array name="qualifications">
         <item>DPE</item>
-        <item>GRADE II</item>
-        <item>GRADE III</item>
-        <item>GRADE IV</item>
-        <item>GRADE V</item>
-        <item>GRADUATE TEACHER</item>
-        <item>LICENSED TEACHER</item>
-        <item>OTHER TRAINING</item>
-        <item>NOT STATED</item>
+        <item>Grade II</item>
+        <item>Grade III</item>
+        <item>Grade IV</item>
+        <item>Grade V</item>
+        <item>Graduate teacher</item>
+        <item>Licensed teacher</item>
+        <item>Other training</item>
+        <item>Not stated</item>
     </string-array>
 
     <string-array name="funding_sources">
-        <item>GOVERNMENT AIDED</item>
-        <item>NON-GOVERNMENT AIDED</item>
+        <item>Government aided</item>
+        <item>Non-government aided</item>
+    </string-array>
+
+    <string-array name="marital_statuses">
+        <item>Married</item>
+        <item>Single</item>
+        <item>Divorced</item>
+        <item>Widowed</item>
+        <item>Separated</item>
+    </string-array>
+
+    <string-array name="subjects">
+        <item>Maths</item>
+        <item>English</item>
+        <item>Biology</item>
+        <item>Physics</item>
+        <item>Chemistry</item>
+        <item>History</item>
+        <item>C.R.E</item>
+        <item>Geography</item>
+        <item>Social Studies</item>
+        <item>Science</item>
+        <item>Commerce</item>
+        <item>Accounts</item>
+        <item>Computer Studies</item>
+    </string-array>
+
+    <string-array name="sexes">
+        <item>F</item>
+        <item>M</item>
+    </string-array>
+
+    <string-array name="education_levels">
+        <item>Primary</item>
+        <item>Secondary</item>
+        <item>Tertiary</item>
     </string-array>
 
     <string-array name="ownership">
-        <item>PRIVATE</item>
-        <item>GOVERNMENT</item>
+        <item>Private</item>
+        <item>Government</item>
     </string-array>
 
     <string-array name="registration_statuses">
-        <item>LICENSED</item>
-        <item>REGISTERED</item>
-        <item>NOT REGISTERED</item>
+        <item>Licensed</item>
+        <item>Registered</item>
+        <item>Not registered</item>
     </string-array>
 
     <string-array name="salary_scales">
@@ -97,7 +161,13 @@
         <item>100,000–200,000</item>
     </string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="choose">Choose infrastructure</string>
+    <string name="next">NEXT</string>
+    <string name="face">face</string>
+    <string name="date_string">%d/%d/%d</string>
+    <string name="submit">SUBMIT</string>
+    <string name="back">BACK</string>
 
 </resources>

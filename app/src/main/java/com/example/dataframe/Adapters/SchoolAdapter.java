@@ -1,25 +1,21 @@
 package com.example.dataframe.Adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
-import com.example.dataframe.Models.SchoolModel;
+import com.example.dataframe.models.SchoolModel;
 import com.example.dataframe.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.jpardogo.android.googleprogressbar.library.GoogleProgressBar;
+import com.m2x.avatarview.AvatarView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -56,17 +52,18 @@ public class SchoolAdapter extends RecyclerView.Adapter<SchoolAdapter.ViewHolder
         shimmerFrameLayout.setVisibility(View.GONE);
 
         String schoolName = schools.get(i).getSchoolName();
-        Random random = new Random();
-        int min = 1;
-        int max = 26;
-
-        int color =random.nextInt((max - min) + 1) + min;
+//        Random random = new Random();
+//        int min = 1;
+//        int max = 26;
+//
+//        int color =random.nextInt((max - min) + 1) + min;
 
         viewHolder.schoolNameTxt.setText(schoolName);
         viewHolder.imagePlaceholder.setText(getInitial(schoolName));
 
         //viewHolder.imagePlaceholder.setBackground(ContextCompat.getDrawable(context, R.drawable.rounded_text_view));
-        viewHolder.imagePlaceholder.setBackgroundColor(Color.parseColor(colors.get(color)));
+        //viewHolder.imagePlaceholder.setBackgroundColor(Color.parseColor(colors.get(color)));
+
     }
 
     @Override
@@ -80,7 +77,7 @@ public class SchoolAdapter extends RecyclerView.Adapter<SchoolAdapter.ViewHolder
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private CircleImageView schoolImageView;
         private TextView schoolNameTxt;
-        private TextView imagePlaceholder;
+        private AvatarView imagePlaceholder;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);

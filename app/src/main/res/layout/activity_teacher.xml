@@ -8,6 +8,7 @@
     tools:context=".TeacherActivity">
 
     <android.support.v7.widget.Toolbar
+        android:id="@+id/menu_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
@@ -243,7 +244,7 @@
                     android:id="@+id/dob_date_picker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_date"/>
+                    android:src="@drawable/ic_date"/>
             </LinearLayout>
 
             <LinearLayout
@@ -315,7 +316,7 @@
                     android:id="@+id/dop_date_picker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_date" />
+                    android:src="@drawable/ic_date" />
 
             </LinearLayout>
 
@@ -367,7 +368,7 @@
                     android:id="@+id/doa_date_picker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_date"/>
+                    android:src="@drawable/ic_date"/>
             </LinearLayout>
 
             <LinearLayout

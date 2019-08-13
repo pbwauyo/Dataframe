@@ -16,9 +16,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 import com.example.dataframe.Adapters.SchoolAdapter;
-import com.example.dataframe.Models.SchoolModel;
+import com.example.dataframe.models.SchoolModel;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.jpardogo.android.googleprogressbar.library.GoogleProgressBar;
 
@@ -35,11 +34,14 @@ public class AllSchoolsActivity extends AppCompatActivity{
     GoogleProgressBar progressBar;
     RecyclerView recyclerView;
     ShimmerFrameLayout shimmerFrameLayout;
+    private String childActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_schools);
+
+        childActivity = getIntent().getStringExtra("childActivity");
 
         shimmerFrameLayout = findViewById(R.id.shimmer_layout);
         shimmerFrameLayout.startShimmer();
@@ -69,8 +71,16 @@ public class AllSchoolsActivity extends AppCompatActivity{
                     schoolAdapter = new SchoolAdapter(AllSchoolsActivity.this, schools, new SchoolAdapter.OnSchoolClickedListener() {
                         @Override
                         public void onSchoolClicked(View view, int position) {
-                            Intent intent = new Intent(AllSchoolsActivity.this, TeacherActivity.class);
-                            intent.putExtra("school_id", schools.get(position).getSchoolId());
+                            Intent intent = null;
+
+                            if(childActivity.equals("TeacherActivity")) {
+                                intent = new Intent(AllSchoolsActivity.this, TeacherActivity.class);
+                                intent.putExtra("school_id", schools.get(position).getSchoolId());
+                            }
+                            else if(childActivity.equals("InfrastructureActivity")){
+                                intent = new Intent(AllSchoolsActivity.this, InfrastructureActivity.class);
+                                intent.putExtra("school_id", schools.get(position).getSchoolId());
+                            }
                             startActivity(intent);
                         }
                     }, progressBar, shimmerFrameLayout);
