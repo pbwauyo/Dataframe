@@ -7,25 +7,51 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:icon">
-        <activity android:name=".popups.TeacherPopUpScreen"/>
-        <activity android:name=".Student" android:label="Student"/>
-        <activity android:name=".AllSchoolsActivity" android:label="Schools List"/>
-        <activity android:name=".SportsActivity" android:label="Sports &amp; P.E"/>
-        <activity android:name=".HIVActivity" android:label="HIV/AIDs"/>
-        <activity android:name=".TeachingMaterialsActivity" android:label="Teaching Materials"/>
-        <activity android:name=".NonTeachingstaffActivity" android:label="Non-teaching staff"/>
-        <activity android:name=".InfrastructureActivity" android:label="Infrastructure"/>
-        <activity android:name=".TeacherActivity" android:label="Teachers"/>
-        <activity android:name=".SchoolActivity" android:label="Schools"/>
-        <activity android:name=".StudentsActivity" android:label="Students"/>
-        <activity android:name=".MainActivity" android:label="Menu">
+        android:usesCleartextTraffic="true"
+        tools:replace="android:icon"
+        tools:targetApi="m">
+        <activity android:name=".popups.TeacherPopUpScreen" />
+        <activity
+            android:name=".Student"
+            android:label="Student" />
+        <activity
+            android:name=".AllSchoolsActivity"
+            android:label="Schools List" />
+        <activity
+            android:name=".SportsActivity"
+            android:label="Sports &amp; P.E" />
+        <activity
+            android:name=".HIVActivity"
+            android:label="HIV/AIDs" />
+        <activity
+            android:name=".TeachingMaterialsActivity"
+            android:label="Teaching Materials" />
+        <activity
+            android:name=".NonTeachingstaffActivity"
+            android:label="Non-teaching staff" />
+        <activity
+            android:name=".InfrastructureActivity"
+            android:label="Infrastructure" />
+        <activity
+            android:name=".TeacherActivity"
+            android:label="Teachers" />
+        <activity
+            android:name=".SchoolActivity"
+            android:label="Schools" />
+        <activity
+            android:name=".StudentsActivity"
+            android:label="Students" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="Menu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

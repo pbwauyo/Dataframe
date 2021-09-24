@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dataframe</string>
+    <string name="app_name">Tela Mobile Survey</string>
     <string name="choose_class">Choose a class</string>
     <string name="choose_age">Choose age</string>
 
@@ -160,7 +160,6 @@
         <item>50,000–100,000</item>
         <item>100,000–200,000</item>
     </string-array>
-
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="choose">Choose infrastructure</string>
