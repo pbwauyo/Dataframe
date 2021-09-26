@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.dataframe.models.SchoolModel;
+import com.example.dataframe.data.models.SchoolModel;
 import com.example.dataframe.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.jpardogo.android.googleprogressbar.library.GoogleProgressBar;

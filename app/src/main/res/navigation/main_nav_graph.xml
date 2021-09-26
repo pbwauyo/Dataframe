@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.dataframe.ui.fragments.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_schoolCharacteristicsFragment"
+            app:destination="@id/schoolCharacteristicsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_teacherFragment"
+            app:destination="@id/teacherFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_nonTeachingStaffFragment"
+            app:destination="@id/nonTeachingStaffFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_infrastructureFragment"
+            app:destination="@id/infrastructureFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_teachingMaterialsFragment"
+            app:destination="@id/teachingMaterialsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_HIVFragment"
+            app:destination="@id/HIVFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_sportsFragment"
+            app:destination="@id/sportsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/schoolCharacteristicsFragment"
+        android:name="com.example.dataframe.ui.fragments.SchoolCharacteristicsFragment"
+        android:label="School Characteristics"
+        tools:layout="@layout/fragment_school_characteristics" />
+    <fragment
+        android:id="@+id/teacherFragment"
+        android:name="com.example.dataframe.ui.fragments.TeacherFragment"
+        android:label="Teachers"
+        tools:layout="@layout/fragment_teacher" />
+    <fragment
+        android:id="@+id/nonTeachingStaffFragment"
+        android:name="com.example.dataframe.ui.fragments.NonTeachingStaffFragment"
+        android:label="Non-Teaching Staff"
+        tools:layout="@layout/fragment_non_teaching_staff" />
+    <fragment
+        android:id="@+id/infrastructureFragment"
+        android:name="com.example.dataframe.ui.fragments.InfrastructureFragment"
+        android:label="Infrastructure"
+        tools:layout="@layout/fragment_infrastructure" />
+    <fragment
+        android:id="@+id/teachingMaterialsFragment"
+        android:name="com.example.dataframe.ui.fragments.TeachingMaterialsFragment"
+        android:label="Teaching Materials"
+        tools:layout="@layout/fragment_teaching_materials" />
+    <fragment
+        android:id="@+id/HIVFragment"
+        android:name="com.example.dataframe.ui.fragments.HIVFragment"
+        android:label="HIV &amp; AIDs"
+        tools:layout="@layout/fragment_hiv" />
+    <fragment
+        android:id="@+id/sportsFragment"
+        android:name="com.example.dataframe.ui.fragments.SportsFragment"
+        android:label="Sports &amp; P.E"
+        tools:layout="@layout/fragment_sports" />
+</navigation>

@@ -1,318 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:theme="@style/AppTheme.MainScreenTheme">
+    android:theme="@style/AppTheme.MainScreenTheme"
+    tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/menu_toolbar"
-        android:layout_width="match_parent"
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white"
+        app:titleTextAppearance="@style/ToolbarTitleText"
+        app:theme="@style/ToolbarTheme"
         android:background="?attr/colorPrimary"/>
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:padding="16dp">
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:navGraph="@navigation/main_nav_graph" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_gravity="center">
-
-           <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/box_shadow"
-                android:layout_marginBottom="8dp">
-
-               <androidx.cardview.widget.CardView
-                   android:id="@+id/students_card_view"
-                   android:layout_width="0dp"
-                   android:layout_weight="1"
-                   android:layout_height="120dp"
-                   app:cardCornerRadius="10dp"
-                   android:layout_marginEnd="8dp"
-                   android:elevation="4dp"
-                   tools:targetApi="lollipop">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center"
-                        android:background="@drawable/card_view_background">
-
-                       <ImageView
-                           android:layout_gravity="center"
-                           app:srcCompat="@drawable/stud"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginBottom="8dp"/>
-                       <TextView
-                           android:gravity="center"
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:text="Pupils &amp; Students"/>
-                    </LinearLayout>
-               </androidx.cardview.widget.CardView>
-
-               <androidx.cardview.widget.CardView
-                   android:id="@+id/school_card_view"
-                   android:layout_width="0dp"
-                   android:layout_weight="1"
-                   android:layout_height="120dp"
-                   app:cardCornerRadius="10dp"
-                   android:elevation="4dp"
-                   tools:targetApi="lollipop">
-
-                   <LinearLayout
-                       android:layout_width="match_parent"
-                       android:layout_height="match_parent"
-                       android:orientation="vertical"
-                       android:padding="8dp"
-                       android:gravity="center"
-                       android:background="@drawable/inverse_cardview_background">
-
-                       <ImageView
-                           app:srcCompat="@drawable/school"
-                           android:layout_gravity="center"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:layout_marginBottom="8dp"/>
-                       <TextView
-                           android:text="School Characteristics"
-                           android:gravity="center"
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"/>
-                   </LinearLayout>
-               </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="10dp"
-                    android:id="@+id/teacher_card_view"
-                    android:layout_marginEnd="8dp"
-                    android:elevation="4dp"
-                    tools:targetApi="lollipop">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center"
-                        android:background="@drawable/card_view_background">
-
-                        <ImageView
-                            android:layout_gravity="center"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/teacher"
-                            android:layout_marginBottom="8dp"/>
-                        <TextView
-                            android:text="Teachers"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/non_teaching_staff_card_view"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="120dp"
-                    app:cardCornerRadius="10dp"
-                    android:elevation="4dp"
-                    tools:targetApi="lollipop">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center"
-                        android:background="@drawable/inverse_cardview_background">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            app:srcCompat="@drawable/staff"
-                            android:layout_marginBottom="8dp"/>
-                        <TextView
-                            android:text="Non-teaching staff"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/infrastructure_card_view"
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="10dp"
-                    android:layout_marginEnd="8dp"
-                    android:elevation="4dp"
-                    tools:targetApi="lollipop">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center"
-                        android:background="@drawable/card_view_background">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            app:srcCompat="@drawable/infrastructure"
-                            android:layout_marginBottom="8dp"/>
-
-                        <TextView
-                            android:text="Infrastructure"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/teaching_materials_activity_card_view"
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="10dp"
-                    android:elevation="4dp"
-                    tools:targetApi="lollipop">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center"
-                        android:background="@drawable/inverse_cardview_background">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            app:srcCompat="@drawable/blackboard"
-                            android:layout_marginBottom="8dp"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Teaching Materials" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/hiv_card_view"
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="10dp"
-                    android:layout_marginEnd="8dp"
-                    android:elevation="4dp"
-                    tools:targetApi="lollipop">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="8dp"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/card_view_background">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            app:srcCompat="@drawable/aids_ribbon"
-                            android:layout_marginBottom="8dp"/>
-                        <TextView
-                            android:text="HIV/AIDs"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/sports_card_view"
-                    android:layout_width="0dp"
-                    android:layout_height="120dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="10dp"
-                    android:elevation="4dp"
-                    app:cardElevation="4dp"
-                    tools:targetApi="lollipop">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center"
-                        android:background="@drawable/inverse_cardview_background">
-
-                        <ImageView
-                            android:layout_gravity="center"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/sports"
-                            android:layout_marginBottom="8dp"/>
-
-                        <TextView
-                            android:text="Sports &amp; P.E"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
