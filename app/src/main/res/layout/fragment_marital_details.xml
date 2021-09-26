@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MaritalDetails"
+    tools:context=".ui.fragments.nationalid.MaritalDetails"
     android:padding="16dp"
     android:theme="@style/AppTheme.TextInputLayoutAppearance">
 
@@ -30,7 +30,7 @@
                     android:id="@+id/surname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_style"
+                    android:background="@drawable/edit_text_background"
                     android:padding="5dp"
                     android:hint="Surname" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -45,7 +45,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Given name"
-                    android:background="@drawable/edit_text_style"
+                    android:background="@drawable/edit_text_background"
                     android:padding="5dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,7 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Other names"
-                    android:background="@drawable/edit_text_style"
+                    android:background="@drawable/edit_text_background"
                     android:padding="5dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,7 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Number of children"
-                    android:background="@drawable/edit_text_style"
+                    android:background="@drawable/edit_text_background"
                     android:padding="5dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,7 +128,7 @@
                         android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edit_text_style"
+                        android:background="@drawable/edit_text_background"
                         android:hint="Name"
                         android:padding="5dp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -140,7 +140,7 @@
                     android:layout_gravity="bottom"
                     android:layout_weight="1"
                     android:hint="Sex"
-                    android:background="@drawable/edit_text_style"
+                    android:background="@drawable/edit_text_background"
                     android:padding="5dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -153,7 +153,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Age"
-                        android:background="@drawable/edit_text_style"
+                        android:background="@drawable/edit_text_background"
                         android:padding="5dp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 

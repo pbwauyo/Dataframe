@@ -41,7 +41,7 @@
     </style>
 
     <style name="AppTheme.EditTextBackground">
-        <item name="editTextBackground">@drawable/edit_text_style</item>
+        <item name="editTextBackground">@drawable/edit_text_background</item>
     </style>
 
     <style name="AppTheme.EditTextBackground.CustomText">
@@ -57,7 +57,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="textInputStyle">@style/MaterialTextInputStyle</item>
     </style>
+    
+    <style name="MaterialTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
 
     <style name="ToolbarTitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">20sp</item>

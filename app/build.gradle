@@ -80,8 +80,10 @@ dependencies {
     // retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
     // Logging API requests on chrome debug tools
     implementation("com.facebook.stetho:stetho:1.5.1")
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
     implementation "androidx.multidex:multidex:$multidex_version"
     implementation 'com.google.code.gson:gson:2.8.8'
 

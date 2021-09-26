@@ -3,26 +3,32 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/edit_text_background.xml" value="0.103125" />
+        <entry key="app/src/main/res/drawable/edit_text_style.xml" value="0.18229166666666666" />
         <entry key="app/src/main/res/layout/activity_all_schools.xml" value="0.15520833333333334" />
-        <entry key="app/src/main/res/layout/activity_hiv.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/activity_hiv.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_infrastructure.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_non_teachingstaff.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_school.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_sports.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/activity_student.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/activity_students.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_teacher.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_teaching_materials.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/dashboard_item_row.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.17083333333333334" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.16770833333333332" />
-        <entry key="app/src/main/res/layout/fragment_hiv.xml" value="0.16770833333333332" />
-        <entry key="app/src/main/res/layout/fragment_infrastructure.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/fragment_hiv.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_infrastructure.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_marital_details.xml" value="0.463855421686747" />
         <entry key="app/src/main/res/layout/fragment_non_teaching_staff.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_school_characteristics.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/fragment_school_characteristics.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_schools_list.xml" value="0.16770833333333332" />
-        <entry key="app/src/main/res/layout/fragment_sports.xml" value="0.16770833333333332" />
-        <entry key="app/src/main/res/layout/fragment_teacher.xml" value="0.16770833333333332" />
-        <entry key="app/src/main/res/layout/fragment_teaching_materials.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/fragment_sports.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_student.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_teacher.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_teaching_materials.xml" value="0.25" />
       </map>
     </option>
   </component>

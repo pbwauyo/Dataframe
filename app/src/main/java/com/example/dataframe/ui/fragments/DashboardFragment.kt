@@ -50,7 +50,7 @@ class DashboardFragment : Fragment(), ItemClickListener<DashboardItem> {
     override fun onClick(item: DashboardItem) {
         when (item.id) {
             0 -> {
-
+                navController.navigate(R.id.action_dashboardFragment_to_studentFragment)
             }
             1 -> {
                 navController.navigate(R.id.action_dashboardFragment_to_schoolCharacteristicsFragment)

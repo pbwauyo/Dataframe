@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ApplicantDetailsFragment"
+    tools:context=".ui.fragments.nationalid.ApplicantDetailsFragment"
     android:theme="@style/AppTheme.EditTextBackground.CustomText"
     android:padding="16dp">
 

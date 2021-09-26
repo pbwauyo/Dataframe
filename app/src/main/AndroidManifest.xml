@@ -27,37 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".popups.TeacherPopUpScreen" />
         <activity
-            android:name=".Student"
+            android:name=".ui.activities.Student"
             android:label="Student" />
-        <activity
-            android:name=".AllSchoolsActivity"
-            android:label="Schools List" />
-        <activity
-            android:name=".SportsActivity"
-            android:label="Sports &amp; P.E" />
-        <activity
-            android:name=".HIVActivity"
-            android:label="HIV/AIDs" />
-        <activity
-            android:name=".TeachingMaterialsActivity"
-            android:label="Teaching Materials" />
-        <activity
-            android:name=".NonTeachingstaffActivity"
-            android:label="Non-teaching staff" />
-        <activity
-            android:name=".InfrastructureActivity"
-            android:label="Infrastructure" />
-        <activity
-            android:name=".TeacherActivity"
-            android:label="Teachers" />
-        <activity
-            android:name=".SchoolActivity"
-            android:label="Schools" />
-        <activity
-            android:name=".StudentsActivity"
-            android:label="Students" />
     </application>
 
 </manifest>
