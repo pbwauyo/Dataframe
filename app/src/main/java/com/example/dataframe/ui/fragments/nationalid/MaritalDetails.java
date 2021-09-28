@@ -19,9 +19,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
-
-import cn.pedant.SweetAlert.SweetAlertDialog;
+//import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+//
+//import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 /**
@@ -51,7 +51,7 @@ public class MaritalDetails extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private MaterialBetterSpinner childSexSpinner;
+//    private MaterialBetterSpinner childSexSpinner;
     private ArrayAdapter<String> arrayAdapter;
 
 
@@ -106,8 +106,8 @@ public class MaritalDetails extends Fragment {
         childNameTxt = view.findViewById(R.id.name);
         childAgeTxt = view.findViewById(R.id.age);
 
-        childSexSpinner = view.findViewById(R.id.sex_spinner);
-        childSexSpinner.setAdapter(arrayAdapter);
+//        childSexSpinner = view.findViewById(R.id.sex_spinner);
+//        childSexSpinner.setAdapter(arrayAdapter);
 
         return view;
     }
@@ -155,31 +155,31 @@ public class MaritalDetails extends Fragment {
             super.onPostExecute(s);
 
             if(!s.equals("-1")){
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
-                        .setTitleText("Success!")
-                        .setContentText("Details saved successfully")
-                        .setConfirmText("Ok")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismiss();
-                                clearAllFields();
-                            }
-                        })
-                        .show();
+//                new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
+//                        .setTitleText("Success!")
+//                        .setContentText("Details saved successfully")
+//                        .setConfirmText("Ok")
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismiss();
+//                                clearAllFields();
+//                            }
+//                        })
+//                        .show();
             }
             else {
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
-                        .setTitleText("Error!")
-                        .setContentText("Failed to save details")
-                        .setConfirmText("Ok")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismiss();
-                            }
-                        })
-                        .show();
+//                new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+//                        .setTitleText("Error!")
+//                        .setContentText("Failed to save details")
+//                        .setConfirmText("Ok")
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismiss();
+//                            }
+//                        })
+//                        .show();
             }
         }
     }
@@ -191,7 +191,7 @@ public class MaritalDetails extends Fragment {
         numOfChildren = numOfChildrenTxt.getText().toString().trim();
 
         childName = childNameTxt.getText().toString().trim();
-        childSex = childSexSpinner.getText().toString();
+//        childSex = childSexSpinner.getText().toString();
         childAge = childAgeTxt.getText().toString().trim();
     }
 
@@ -225,27 +225,27 @@ public class MaritalDetails extends Fragment {
         yesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Are you sure?")
-                        .setContentText("Make sure all fields are correct")
-                        .showCancelButton(true)
-                        .setConfirmText("Yes")
-                        .setCancelText("No")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismiss();
-                                dialog.dismiss();
-                                new SaveDetailsToDb().execute();
-                            }
-                        })
-                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismiss();
-                            }
-                        })
-                        .show();
+//                new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
+//                        .setTitleText("Are you sure?")
+//                        .setContentText("Make sure all fields are correct")
+//                        .showCancelButton(true)
+//                        .setConfirmText("Yes")
+//                        .setCancelText("No")
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismiss();
+//                                dialog.dismiss();
+//                                new SaveDetailsToDb().execute();
+//                            }
+//                        })
+//                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismiss();
+//                            }
+//                        })
+//                        .show();
             }
         });
 

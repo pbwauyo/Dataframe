@@ -18,9 +18,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
-
-import cn.pedant.SweetAlert.SweetAlertDialog;
+//import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+//
+//import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 /**
@@ -39,7 +39,7 @@ public class ApplicantAddressFragment extends Fragment {
     private String mParam2;
     private Button nextBtn;
 
-    private MaterialBetterSpinner educationLevelSpinner, maritalStatusSpinner;
+//    private MaterialBetterSpinner educationLevelSpinner, maritalStatusSpinner;
     private ArrayAdapter<String> educationLevelAdapter, maritalStatusAdapter;
 
     private TextInputEditText postalAddressTxt, villageTxt, parishTxt, subCountyTxt, countyTxt, districtTxt, occupationTxt, professionTxt;
@@ -109,11 +109,11 @@ public class ApplicantAddressFragment extends Fragment {
         occupationTxt = view.findViewById(R.id.occupation);
         professionTxt = view.findViewById(R.id.profession);
 
-        educationLevelSpinner = view.findViewById(R.id.education_level_spinner);
-        maritalStatusSpinner = view.findViewById(R.id.marital_status_spinner);
+//        educationLevelSpinner = view.findViewById(R.id.education_level_spinner);
+//        maritalStatusSpinner = view.findViewById(R.id.marital_status_spinner);
 
-        educationLevelSpinner.setAdapter(educationLevelAdapter);
-        maritalStatusSpinner.setAdapter(maritalStatusAdapter);
+//        educationLevelSpinner.setAdapter(educationLevelAdapter);
+//        maritalStatusSpinner.setAdapter(maritalStatusAdapter);
 
         return view;
     }
@@ -159,31 +159,31 @@ public class ApplicantAddressFragment extends Fragment {
             super.onPostExecute(s);
 
             if(!s.equals("-1")){
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
-                        .setTitleText("Success!")
-                        .setContentText("Details saved successfully")
-                        .setConfirmText("Ok")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismiss();
-                                clearAllFields();
-                            }
-                        })
-                        .show();
+//                new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
+//                        .setTitleText("Success!")
+//                        .setContentText("Details saved successfully")
+//                        .setConfirmText("Ok")
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismiss();
+//                                clearAllFields();
+//                            }
+//                        })
+//                        .show();
             }
             else {
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
-                        .setTitleText("Error!")
-                        .setContentText("Failed to save details")
-                        .setConfirmText("Ok")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismiss();
-                            }
-                        })
-                        .show();
+//                new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
+//                        .setTitleText("Error!")
+//                        .setContentText("Failed to save details")
+//                        .setConfirmText("Ok")
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismiss();
+//                            }
+//                        })
+//                        .show();
             }
         }
     }
@@ -197,8 +197,8 @@ public class ApplicantAddressFragment extends Fragment {
         district = districtTxt.getText().toString().trim();
         occupation = occupationTxt.getText().toString().trim();
         profession = professionTxt.getText().toString().trim();
-        educationLevel = educationLevelSpinner.getText().toString();
-        maritalStatus = maritalStatusSpinner.getText().toString();
+//        educationLevel = educationLevelSpinner.getText().toString();
+//        maritalStatus = maritalStatusSpinner.getText().toString();
     }
 
     private void clearAllFields(){
@@ -266,27 +266,27 @@ public class ApplicantAddressFragment extends Fragment {
         yesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Are you sure?")
-                        .setContentText("Make sure all fields are correct")
-                        .showCancelButton(true)
-                        .setConfirmText("Yes")
-                        .setCancelText("No")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismissWithAnimation();
-                                dialog.dismiss();
-                                new SaveDetailsToDb().execute();
-                            }
-                        })
-                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismissWithAnimation();
-                            }
-                        })
-                        .show();
+//                new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
+//                        .setTitleText("Are you sure?")
+//                        .setContentText("Make sure all fields are correct")
+//                        .showCancelButton(true)
+//                        .setConfirmText("Yes")
+//                        .setCancelText("No")
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismissWithAnimation();
+//                                dialog.dismiss();
+//                                new SaveDetailsToDb().execute();
+//                            }
+//                        })
+//                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismissWithAnimation();
+//                            }
+//                        })
+//                        .show();
             }
         });
 

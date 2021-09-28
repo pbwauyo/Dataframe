@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
-import cn.pedant.SweetAlert.SweetAlertDialog;
+//import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 /**
@@ -161,31 +161,31 @@ public class ParentsDetails extends Fragment implements DatePickerDialog.OnDateS
             super.onPostExecute(s);
 
             if(!s.equals("-1")){
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
-                        .setTitleText("Success!")
-                        .setContentText("Details saved successfully")
-                        .setConfirmText("Ok")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismissWithAnimation();
-                                clearAllFields();
-                            }
-                        })
-                        .show();
+//                new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
+//                        .setTitleText("Success!")
+//                        .setContentText("Details saved successfully")
+//                        .setConfirmText("Ok")
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismissWithAnimation();
+//                                clearAllFields();
+//                            }
+//                        })
+//                        .show();
             }
             else {
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
-                        .setTitleText("Error!")
-                        .setContentText("Failed to save details")
-                        .setConfirmText("Ok")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismissWithAnimation();
-                            }
-                        })
-                        .show();
+//                new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+//                        .setTitleText("Error!")
+//                        .setContentText("Failed to save details")
+//                        .setConfirmText("Ok")
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismissWithAnimation();
+//                            }
+//                        })
+//                        .show();
             }
         }
     }
@@ -283,27 +283,27 @@ public class ParentsDetails extends Fragment implements DatePickerDialog.OnDateS
         yesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Are you sure?")
-                        .setContentText("Make sure all fields are correct")
-                        .setConfirmText("Yes")
-                        .setCancelText("No")
-                        .showCancelButton(true)
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismissWithAnimation();
-                                dialog.dismiss();
-                                new SaveDetailsToDb().execute();
-                            }
-                        })
-                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismissWithAnimation();
-                            }
-                        })
-                        .show();
+//                new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
+//                        .setTitleText("Are you sure?")
+//                        .setContentText("Make sure all fields are correct")
+//                        .setConfirmText("Yes")
+//                        .setCancelText("No")
+//                        .showCancelButton(true)
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismissWithAnimation();
+//                                dialog.dismiss();
+//                                new SaveDetailsToDb().execute();
+//                            }
+//                        })
+//                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismissWithAnimation();
+//                            }
+//                        })
+//                        .show();
             }
         });
 

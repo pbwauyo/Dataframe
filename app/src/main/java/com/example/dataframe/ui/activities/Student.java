@@ -17,8 +17,8 @@ import com.example.dataframe.ui.fragments.nationalid.ParentsDetails;
 
 import java.util.ArrayList;
 
-import cn.pedant.SweetAlert.SweetAlertDialog;
-import me.relex.circleindicator.CircleIndicator;
+//import cn.pedant.SweetAlert.SweetAlertDialog;
+//import me.relex.circleindicator.CircleIndicator;
 
 public class Student extends AppCompatActivity {
     private ViewPager viewPager;
@@ -30,35 +30,35 @@ public class Student extends AppCompatActivity {
         setContentView(R.layout.activity_student);
 
         viewPager = findViewById(R.id.applicant_viewpager);
-        CircleIndicator circleIndicator = findViewById(R.id.circle_indicator);
+//        CircleIndicator circleIndicator = findViewById(R.id.circle_indicator);
 
         ScreenSliderPagerAdapter pagerAdapter = new ScreenSliderPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
-        circleIndicator.setViewPager(viewPager);
+//        circleIndicator.setViewPager(viewPager);
 
     }
 
     @Override
     public void onBackPressed(){
-        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
-                .setTitleText("Do you want to exit?")
-                .showCancelButton(true)
-                .setConfirmText("Yes")
-                .setCancelText("No")
-                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        sweetAlertDialog.dismissWithAnimation();
-                    }
-                })
-                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        sweetAlertDialog.dismissWithAnimation();
-                        startActivity(new Intent(Student.this, MainActivity.class));
-                    }
-                })
-                .show();
+//        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+//                .setTitleText("Do you want to exit?")
+//                .showCancelButton(true)
+//                .setConfirmText("Yes")
+//                .setCancelText("No")
+//                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                    @Override
+//                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                        sweetAlertDialog.dismissWithAnimation();
+//                    }
+//                })
+//                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                    @Override
+//                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                        sweetAlertDialog.dismissWithAnimation();
+//                        startActivity(new Intent(Student.this, MainActivity.class));
+//                    }
+//                })
+//                .show();
 
     }
 

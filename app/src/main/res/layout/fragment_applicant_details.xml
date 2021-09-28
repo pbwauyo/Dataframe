@@ -3,10 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.fragments.nationalid.ApplicantDetailsFragment"
+    android:padding="16dp"
     android:theme="@style/AppTheme.EditTextBackground.CustomText"
-    android:padding="16dp">
+    tools:context=".ui.fragments.nationalid.ApplicantDetailsFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -99,44 +98,28 @@
                 android:id="@+id/sex_radio_grp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="90dp"
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="Sex"
-                    android:textStyle="bold" />
+                    android:padding="5dp"
+                    android:text="Sex" />
 
-                <me.omidh.liquidradiobutton.LiquidRadioButton
-                    android:id="@+id/male_radio_btn"
-                    android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="Male"
-                    app:lrb_checkedColor="@color/colorPrimary"
-                    app:lrb_explodeCount="3"
-                    app:lrb_inAnimDuration="500"
-                    app:lrb_innerCircleRadius="10dp"
-                    app:lrb_outAnimDuration="500"
-                    app:lrb_outterPadding="8dp"
-                    app:lrb_strokeRadius="15dp"
-                    app:lrb_strokeWidth="1dp"
-                    app:lrb_unCheckedColor="@android:color/holo_red_light" />
+                    android:layout_weight="1"
+                    android:text="Male" />
 
-                <me.omidh.liquidradiobutton.LiquidRadioButton
-                    android:id="@+id/female_radio_btn"
-                    android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Female"
-                    app:lrb_checkedColor="@color/colorPrimary"
-                    app:lrb_explodeCount="3"
-                    app:lrb_inAnimDuration="500"
-                    app:lrb_innerCircleRadius="10dp"
-                    app:lrb_outAnimDuration="500"
-                    app:lrb_outterPadding="8dp"
-                    app:lrb_strokeRadius="15dp"
-                    app:lrb_strokeWidth="1dp"
-                    app:lrb_unCheckedColor="@android:color/holo_red_light" />
+                    android:layout_weight="1"
+                    android:text="Female" />
             </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -186,9 +169,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
                 android:gravity="end"
-                android:layout_marginTop="8dp">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/next"
@@ -207,8 +190,6 @@
                     android:text="@string/submit" />
 
             </LinearLayout>
-
-
 
         </LinearLayout>
 

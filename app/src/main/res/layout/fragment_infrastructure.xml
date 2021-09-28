@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:gpb="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,14 +16,26 @@
             android:layout_marginTop="16dp"
             android:orientation="vertical">
 
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/infrastructure_spinner"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="Select infrastructure"
-                android:padding="5dp"
-                android:textColorHint="@color/customTextColor" />
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Infrastructure" />
+
+                <Spinner
+                    android:id="@+id/infrastructure_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/infrastructures"
+                    android:prompt="@string/select_infrastructure" />
+            </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -40,30 +50,47 @@
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/infrastructure_type_spinner"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:hint="Infrastructure type"
-                android:padding="5dp" />
+                android:orientation="horizontal">
 
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/completion_status_spinner"
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Type" />
+
+                <Spinner
+                    android:id="@+id/infrastructure_type_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/infrastructure_types"
+                    android:prompt="@string/select_infrastructure_type" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:hint="Completion status"
-                android:padding="5dp" />
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
 
-            <com.jpardogo.android.googleprogressbar.library.GoogleProgressBar
-                android:id="@+id/infrastructure_progress_bar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:visibility="gone"
-                gpb:colors="@array/progress_bar_colors"
-                gpb:type="chrome_floating_circles" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Completion status" />
+
+                <Spinner
+                    android:id="@+id/completion_status_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/completion_statuses"
+                    android:prompt="@string/select_infrastructure_type" />
+            </LinearLayout>
 
             <RadioGroup
                 android:id="@+id/in_use_radio_grp"
@@ -73,40 +100,25 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="In use" />
-
-                <me.omidh.liquidradiobutton.LiquidRadioButton
-                    android:id="@+id/yes_radio_btn"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="Yes"
-                    app:lrb_checkedColor="@android:color/holo_green_dark"
-                    app:lrb_explodeCount="3"
-                    app:lrb_inAnimDuration="500"
-                    app:lrb_innerCircleRadius="15dp"
-                    app:lrb_outAnimDuration="500"
-                    app:lrb_outterPadding="8dp"
-                    app:lrb_strokeRadius="15dp"
-                    app:lrb_strokeWidth="1dp"
-                    app:lrb_unCheckedColor="@color/colorPrimaryDark" />
+                    android:padding="5dp"
+                    android:text="In Use" />
 
-                <me.omidh.liquidradiobutton.LiquidRadioButton
-                    android:id="@+id/no_radio_btn"
-                    android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/in_use_yes"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="No"
-                    app:lrb_checkedColor="@android:color/holo_green_dark"
-                    app:lrb_explodeCount="3"
-                    app:lrb_inAnimDuration="500"
-                    app:lrb_innerCircleRadius="10dp"
-                    app:lrb_outAnimDuration="500"
-                    app:lrb_outterPadding="8dp"
-                    app:lrb_strokeRadius="15dp"
-                    app:lrb_strokeWidth="1dp"
-                    app:lrb_unCheckedColor="@color/colorPrimaryDark" />
+                    android:layout_weight="1"
+                    android:text="Yes" />
+
+                <RadioButton
+                    android:id="@+id/in_use_no"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No" />
+
             </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -119,7 +131,7 @@
                     android:id="@+id/number_of_employees"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"/>
+                    android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton

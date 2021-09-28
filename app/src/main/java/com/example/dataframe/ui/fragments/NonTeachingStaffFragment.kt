@@ -12,11 +12,13 @@ import com.example.dataframe.databinding.FragmentNonTeachingStaffBinding
 import com.example.dataframe.ui.viewmodels.AppViewModel
 import com.example.dataframe.utils.CustomToast
 import com.example.dataframe.utils.Utility
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.kaopiz.kprogresshud.KProgressHUD
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
+import java.util.*
 
 @AndroidEntryPoint
 class NonTeachingStaffFragment : Fragment() {
@@ -25,11 +27,15 @@ class NonTeachingStaffFragment : Fragment() {
     private lateinit var kProgressHUD: KProgressHUD
     private val appViewModel: AppViewModel by viewModels()
     private lateinit var customToast: CustomToast
+    private lateinit var datePicker: MaterialDatePicker<Long>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         kProgressHUD = Utility.getDefaultProgressIndicator(requireActivity())
         customToast = CustomToast(requireActivity())
+        datePicker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Select date of birth")
+            .build()
     }
 
     override fun onCreateView(
@@ -45,6 +51,10 @@ class NonTeachingStaffFragment : Fragment() {
 
         binding!!.submit.setOnClickListener {
             submitDetails()
+        }
+
+        binding!!.dobDatePicker.setOnClickListener {
+            selectDateOfBirth()
         }
 
         return binding?.root
@@ -69,6 +79,18 @@ class NonTeachingStaffFragment : Fragment() {
                 customToast.showLongToast(message)
             }
         }
+    }
+
+    private fun selectDateOfBirth() {
+        datePicker.addOnPositiveButtonClickListener {
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = it
+            binding!!.birthDay.text = calendar.get(Calendar.DAY_OF_MONTH).toString().padStart(2, '0')
+            val month = calendar.get(Calendar.MONTH).plus(1)
+            binding!!.birthMonth.text = month.toString().padStart(2, '0')
+            binding!!.birthYear.text = calendar.get(Calendar.YEAR).toString()
+        }
+        datePicker.show(requireActivity().supportFragmentManager, "DOB_DATE_PICKER")
     }
 
     private fun observeProgress() {

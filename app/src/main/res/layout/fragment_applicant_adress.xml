@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.nationalid.ApplicantAddressFragment"
-    android:theme="@style/AppTheme.EditTextBackground.CustomText">
+    android:theme="@style/AppTheme.EditTextBackground.CustomText"
+    tools:context=".ui.fragments.nationalid.ApplicantAddressFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -22,9 +22,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/postal_address"
-                    android:hint="Postal address"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="Postal address" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -33,9 +33,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/village"
-                    android:hint="Village"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="Village" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -44,9 +44,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/parish"
-                    android:hint="Parish"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="Parish" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -55,9 +55,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/sub_county"
-                    android:hint="Sub county"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="Sub county" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -66,9 +66,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/county"
-                    android:hint="County"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="County" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -77,9 +77,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/district"
-                    android:hint="District"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="District" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -88,9 +88,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/occupation"
-                    android:hint="Occupation"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="Occupation" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -99,50 +99,75 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/profession"
-                    android:hint="Profession"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="Profession" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/education_level_spinner"
-                android:hint="Highest level of education"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:background="@drawable/edit_text_background"/>
-
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/marital_status_spinner"
-                android:hint="Marital status"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/edit_text_background"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Education Level" />
+
+                <Spinner
+                    android:id="@+id/education_level_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/marital_statuses"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Marital Status" />
+
+                <Spinner
+                    android:id="@+id/marital_status_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/education_levels"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:gravity="end"
-                android:layout_marginTop="8dp">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
                     android:background="@drawable/custom_button_style"
-                    android:text="@string/back"
-                    android:layout_marginEnd="16dp"/>
+                    android:text="@string/back" />
 
                 <Button
                     android:id="@+id/next"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
                     android:background="@drawable/custom_button_style"
-                    android:text="@string/next"
-                    android:layout_marginEnd="16dp"/>
+                    android:text="@string/next" />
 
                 <Button
                     android:id="@+id/submit"

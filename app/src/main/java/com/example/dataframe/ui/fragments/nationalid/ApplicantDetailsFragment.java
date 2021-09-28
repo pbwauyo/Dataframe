@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
-import cn.pedant.SweetAlert.SweetAlertDialog;
+//import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
 /**
@@ -155,31 +155,31 @@ public class ApplicantDetailsFragment extends Fragment implements DatePickerDial
             super.onPostExecute(s);
 
             if(!s.equals("-1")){
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
-                        .setTitleText("Success!")
-                        .setContentText("Details saved successfully")
-                        .setConfirmText("Ok")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismiss();
-                                clearAllFields();
-                            }
-                        })
-                        .show();
+//                new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
+//                        .setTitleText("Success!")
+//                        .setContentText("Details saved successfully")
+//                        .setConfirmText("Ok")
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismiss();
+//                                clearAllFields();
+//                            }
+//                        })
+//                        .show();
             }
             else {
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
-                        .setTitleText("Error!")
-                        .setContentText("Failed to save details")
-                        .setConfirmText("Ok")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismiss();
-                            }
-                        })
-                        .show();
+//                new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+//                        .setTitleText("Error!")
+//                        .setContentText("Failed to save details")
+//                        .setConfirmText("Ok")
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismiss();
+//                            }
+//                        })
+//                        .show();
             }
         }
     }
@@ -200,7 +200,7 @@ public class ApplicantDetailsFragment extends Fragment implements DatePickerDial
         otherNames = otherNamesTxt.getText().toString().trim();
         previousNames = previousNameTxt.getText().toString().trim();
         dateOfBirth = dobTxt.getText().toString();
-        sex = sexGrp.getCheckedRadioButtonId() == R.id.male_radio_btn ? "Male" : "Female";
+//        sex = sexGrp.getCheckedRadioButtonId() == R.id.male_radio_btn ? "Male" : "Female";
         placeofBirth = placeOfBirthTxt.getText().toString().trim();
         placeOfOrigin = placeOfOriginTxt.getText().toString().trim();
         indigenousCommunity = indigenousCommunityTxt.getText().toString().trim();
@@ -285,27 +285,27 @@ public class ApplicantDetailsFragment extends Fragment implements DatePickerDial
         yesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Are you sure?")
-                        .setContentText("Make sure all fields are correct!")
-                        .showCancelButton(true)
-                        .setConfirmText("Yes")
-                        .setCancelText("No")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismiss();
-                                dialog.dismiss();
-                                new SaveDetailsToDb().execute();
-                            }
-                        })
-                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                                sweetAlertDialog.dismiss();
-                            }
-                        })
-                        .show();
+//                new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
+//                        .setTitleText("Are you sure?")
+//                        .setContentText("Make sure all fields are correct!")
+//                        .showCancelButton(true)
+//                        .setConfirmText("Yes")
+//                        .setCancelText("No")
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismiss();
+//                                dialog.dismiss();
+//                                new SaveDetailsToDb().execute();
+//                            }
+//                        })
+//                        .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sweetAlertDialog) {
+//                                sweetAlertDialog.dismiss();
+//                            }
+//                        })
+//                        .show();
             }
         });
 

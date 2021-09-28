@@ -32,13 +32,28 @@
         <item></item>
     </string-array>
 
-    <string-array name="classes">
+    <string-array name="pre_primary_classes">
+        <item>Kindergarten</item>
+        <item>Nursery</item>
+    </string-array>
+
+    <string-array name="primary_classes">
         <item>P1</item>
         <item>P2</item>
-        <item>p3</item>
-        <item>p4</item>
+        <item>P3</item>
+        <item>P4</item>
         <item>P5</item>
         <item>P6</item>
+        <item>P7</item>
+    </string-array>
+
+    <string-array name="secondary_classes">
+        <item>S1</item>
+        <item>S2</item>
+        <item>S3</item>
+        <item>S4</item>
+        <item>S5</item>
+        <item>S6</item>
     </string-array>
 
     <string-array name="school_types">
@@ -168,5 +183,51 @@
     <string name="date_string">%d/%d/%d</string>
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
+
+    <string-array name="regions">
+        <item>ACHOLI</item>
+        <item>ANKOLE</item>
+        <item>BUGANDA</item>
+        <item>BUKEDI</item>
+        <item>BUSOGA</item>
+        <item>ELGON</item>
+        <item>KARAMOJA</item>
+        <item>KIGEZI</item>
+        <item>LANGO</item>
+        <item>TESO</item>
+        <item>TORO</item>
+        <item>WEST NILE</item>
+    </string-array>
+
+    <string-array name="non_teaching_staff_category">
+        <item>Administrative personnel with no instructional duties</item>
+        <item>Non - Professional Support Personnel</item>
+        <item>Professional Pedagogical Support Personnel</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="nationalities">
+        <item>UGANDAN</item>
+        <item>KENYAN</item>
+        <item>TANZANIAN</item>
+        <item>RWANDAN</item>
+    </string-array>
+
+    <string-array name="disabilities">
+        <item>Autism</item>
+        <item>Hearing Impaired</item>
+        <item>Mentally Impaired</item>
+        <item>Multiple Handicaps</item>
+        <item>Physically impaired</item>
+        <item>Visually Impaired</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="choose_disability">Choose Disability</string>
+    <string name="choose_nationality">Choose Nationality</string>
+    <string name="select_infrastructure">Select infrastructure</string>
+    <string name="select_infrastructure_type">Select infrastructure type</string>
+    <string name="select_completion_status">Select completion status</string>
+    <string name="choose_subject">Choose subject</string>
 
 </resources>
